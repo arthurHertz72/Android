@@ -2,7 +2,6 @@ package com.example.arthurhertz.guessnfd;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,8 +16,6 @@ public class MainActivity extends Activity {
     private String result;
     private String test = "50";
     private String valeur;
-    Random rand = new Random();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +25,7 @@ public class MainActivity extends Activity {
 
     public void leJeux(){
         result = valeur;
-        int n = rand.nextInt(100) + 1;
-        String nString = Integer.toString(n);
+        int n = (int)(Math.random()*100);
         TextView text = (TextView) findViewById(R.id.screen) ;
         ImageView imgFp = (ImageView) findViewById(R.id.imageView);
         ImageView imgPlusMois = (ImageView) findViewById(R.id.imageView2);
@@ -40,8 +36,7 @@ public class MainActivity extends Activity {
             if(Objects.equals(test,result)){
                 imgFp.setImageResource(R.drawable.dskds);
                 text.setText("GAGNÉ");
-                result = nString;
-                
+                test = Integer.toString(n);
             }
             if(Integer.parseInt(test) < Integer.parseInt(result)) {
                 imgPlusMois.setImageResource(R.drawable.arrowdown);
